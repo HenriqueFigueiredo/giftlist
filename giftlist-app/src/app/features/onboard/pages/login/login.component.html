@@ -1,0 +1,56 @@
+<div class="login-container">
+  <app-header-minimal></app-header-minimal>
+  <div class="card-container">
+    <mat-card>
+      <div class="card-content">
+        <form [formGroup]="emailForm" (ngSubmit)="onSubmitEmailForm()">
+          <mat-card-title class="title">Start now</mat-card-title>
+          <p class="centered-text">Enter your email to continue</p>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              required
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+            <mat-error
+              *ngIf="
+                emailForm.get('email')?.invalid &&
+                (emailForm.get('email')?.touched ||
+                  emailForm.get('email')?.dirty)
+              "
+            >
+              <span *ngIf="emailForm.get('email')?.hasError('required')"
+                >Email is required</span
+              >
+              <span *ngIf="emailForm.get('email')?.hasError('email')"
+                >Email is invalid</span
+              >
+            </mat-error>
+          </mat-form-field>
+          <button
+            mat-raised-button
+            type="submit"
+            [disabled]="!emailForm.valid"
+            color="primary"
+            class="full-width"
+          >
+            Enter
+          </button>
+          <button
+            mat-button
+            color="warn"
+            (click)="return()"
+            class="menu-link"
+            class="full-width"
+          >
+            Give up
+          </button>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+  <app-footer-minimal></app-footer-minimal>
+</div>

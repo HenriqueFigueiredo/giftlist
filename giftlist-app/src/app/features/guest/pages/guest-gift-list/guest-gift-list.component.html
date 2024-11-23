@@ -1,0 +1,34 @@
+<div class="guest-gift-list-container">
+  <app-header></app-header>
+
+  <div class="card-container" *ngIf="giftList.gifts.length === 0">
+    <div class="title">
+      <h3>{{ giftList.name }}</h3>
+      <p>{{ giftList.description }}</p>
+      <p>
+        It looks like this list doesn't have any gifts yet. Please try again
+        later or contact your hosts!
+      </p>
+    </div>
+  </div>
+
+  <div class="card-container" *ngIf="giftList.gifts.length > 0">
+    <div class="title">
+      <h3>{{ giftList.name }}</h3>
+      <p>{{ giftList.description }}</p>
+    </div>
+
+    <div *ngFor="let gift of giftList.gifts">
+      <app-guest-gift-card
+        giftId="{{ gift.id }}"
+        listId="{{ giftList.id }}"
+        giftName="{{ gift.name }}"
+        giftUrl="{{ gift.url }}"
+        [giftFree]="gift.free"
+        (giftSelected)="giftSelected()"
+      ></app-guest-gift-card>
+    </div>
+  </div>
+
+  <app-footer-minimal></app-footer-minimal>
+</div>

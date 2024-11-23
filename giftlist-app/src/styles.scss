@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$giftlist-app-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$magenta-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+:root {
+  @include mat.all-component-themes($giftlist-app-theme);
+}
+
+
+$primary-color: mat.get-theme-color($giftlist-app-theme, primary, 30);
+
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #faf5fc;
+}
+
+.error-snackbar {
+  background-color: #f44336;
+  color: white;
+}
+
+.info-snackbar {
+  background-color: $primary-color;
+  color: white;
+}
+
+mat-icon {
+  font-size: 24px;
+  color: #444;
+}
+
+mat-icon:hover {
+  color: $primary-color;
+}

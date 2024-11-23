@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>{{ gift.name }}</mat-card-title>
+  <span *ngIf="gift.guestEmail"
+    >Yay, this gift has already been confirmed!</span
+  >
+
+  <div class="action-buttons">
+    <button mat-icon-button (click)="openDetails()">
+      <mat-icon>search</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="deleteGift()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,16 @@
+<footer class="footer" [ngClass]="{ mobile: isMobile }">
+  <div class="footer-row">
+    <img src="assets/images/logo.png" alt="Logo" class="logo" />
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer-links">
+    <span class="copyright">© 2024 giftlist</span>
+
+    <div class="links" [ngClass]="{ 'mobile-links': isMobile }">
+      <a routerLink="/privacy-policy">Privacy Policy</a>
+      <a routerLink="/terms-use">Terms of Service</a>
+    </div>
+  </div>
+</footer>

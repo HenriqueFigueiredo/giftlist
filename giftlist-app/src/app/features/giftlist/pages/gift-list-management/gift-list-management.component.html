@@ -1,0 +1,63 @@
+<div class="gift-list-management-container">
+  <app-header></app-header>
+
+  <div class="card-container" *ngIf="giftList.gifts.length === 0">
+    <div class="title">
+      <h3>{{ giftList.name }}</h3>
+      <p>{{ giftList.description }}</p>
+      <p>Don't waste any more time, add your gifts now!</p>
+    </div>
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      class="full-width"
+      (click)="navigateToGiftForm()"
+    >
+      Add Gift
+    </button>
+    <a
+      mat-button
+      color="accent"
+      routerLink="/home"
+      class="menu-link"
+      class="full-width"
+      >Back to my lists</a
+    >
+  </div>
+
+  <div class="card-container" *ngIf="giftList.gifts.length > 0">
+    <div class="title">
+      <h3>{{ giftList.name }}</h3>
+      <p>{{ giftList.description }}</p>
+    </div>
+
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      class="full-width"
+      (click)="navigateToGiftForm()"
+    >
+      Add Gift
+    </button>
+    <a
+      mat-button
+      color="accent"
+      routerLink="/home"
+      class="menu-link"
+      class="full-width"
+      >Back to my lists</a
+    >
+
+    <div *ngFor="let gift of giftList.gifts">
+      <app-gift-card
+        listId="{{ giftList.id }}"
+        [gift]="gift"
+        (giftRemoved)="giftRemoved()"
+      ></app-gift-card>
+    </div>
+  </div>
+
+  <app-footer-minimal></app-footer-minimal>
+</div>

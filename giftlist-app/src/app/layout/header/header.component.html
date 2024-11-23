@@ -1,0 +1,38 @@
+<header>
+  <mat-toolbar color="primary">
+    <span>
+      <img src="assets/images/logo.png" alt="Ícone" class="custom-icon" />
+    </span>
+
+    <a mat-button color="primary" routerLink="/" class="menu-link">giftlist</a>
+
+    <span class="spacer"></span>
+
+    <a
+      mat-button
+      color="primary"
+      *ngIf="!userLogged()"
+      routerLink="/login"
+      class="menu-link"
+      >Login</a
+    >
+
+    <a
+      mat-button
+      color="primary"
+      *ngIf="userLogged()"
+      routerLink="/home"
+      class="menu-link"
+      >My Lists</a
+    >
+
+    <a
+      mat-button
+      color="primary"
+      *ngIf="userLogged()"
+      (click)="logoff()"
+      class="menu-link"
+      >Logout</a
+    >
+  </mat-toolbar>
+</header>

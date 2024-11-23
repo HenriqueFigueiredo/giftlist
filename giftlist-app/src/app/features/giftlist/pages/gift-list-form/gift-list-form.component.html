@@ -1,0 +1,89 @@
+<div class="gift-list-form-container">
+  <app-header-minimal></app-header-minimal>
+  <div class="card-container">
+    <mat-card>
+      <div class="card-content">
+        <form [formGroup]="giftListForm" (ngSubmit)="onSubmiGiftListForm()">
+          <mat-card-title class="title">Create your list!</mat-card-title>
+          <p class="centered-text">
+            Choose a name for your list and a welcoming message for your guests.
+            This information will be displayed to your guests.
+          </p>
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              type="text"
+              maxlength="30"
+              required
+              formControlName="nameInput"
+              placeholder="e.g.: Mari and Dani's Wedding"
+            />
+            <mat-hint
+              >{{ giftListForm.get('nameInput')?.value?.length }} / 30
+            </mat-hint>
+            <mat-error
+              *ngIf="
+                giftListForm.get('nameInput')?.invalid &&
+                (giftListForm.get('nameInput')?.touched ||
+                  giftListForm.get('nameInput')?.dirty)
+              "
+            >
+              <span *ngIf="giftListForm.get('nameInput')?.hasError('required')"
+                >Name is required.</span
+              >
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Welcome message</mat-label>
+            <textarea
+              matInput
+              maxlength="240"
+              placeholder="e.g.: Thank you for making our day more special..."
+              required
+              formControlName="descriptionInput"
+            ></textarea>
+            <mat-hint
+              >{{ giftListForm.get('descriptionInput')?.value?.length }} / 240
+            </mat-hint>
+            <mat-error
+              *ngIf="
+                giftListForm.get('descriptionInput')?.invalid &&
+                (giftListForm.get('descriptionInput')?.touched ||
+                  giftListForm.get('descriptionInput')?.dirty)
+              "
+            >
+              <span
+                *ngIf="
+                  giftListForm.get('descriptionInput')?.hasError('required')
+                "
+                >Description is required</span
+              >
+            </mat-error>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            type="submit"
+            [disabled]="!giftListForm.valid"
+            color="primary"
+            class="full-width"
+          >
+            Create list
+          </button>
+          <a
+            mat-button
+            color="warn"
+            routerLink="/home"
+            class="menu-link"
+            class="full-width"
+            >Give up</a
+          >
+        </form>
+      </div>
+    </mat-card>
+  </div>
+  <app-footer-minimal></app-footer-minimal>
+</div>

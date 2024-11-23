@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>{{ giftName }}</mat-card-title>
+  <a (click)="onLinkClick($event)" class="gift-link"
+    >Click here to see the link</a
+  >
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="selectGift()"
+    *ngIf="giftFree"
+  >
+    I want to give this gift
+  </button>
+
+  <button
+    *ngIf="!giftFree"
+    mat-raised-button
+    color="primary"
+    [disabled]="true"
+    (click)="selectGift()"
+  >
+    Another person has already confirmed it.
+  </button>
+</mat-card>

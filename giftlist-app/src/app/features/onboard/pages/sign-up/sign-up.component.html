@@ -1,0 +1,86 @@
+<div class="signup-container">
+  <app-header-minimal></app-header-minimal>
+  <div class="card-container">
+    <mat-card>
+      <div class="card-content">
+        <form [formGroup]="signForm" (ngSubmit)="onSubmitSignupForm()">
+          <mat-card-title class="title">First access</mat-card-title>
+          <p class="centered-text">
+            You're new here, please provide the details below to continue
+          </p>
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              type="text"
+              maxlength="20"
+              required
+              formControlName="nameInput"
+              placeholder="Enter your name"
+            />
+            <mat-hint
+              >{{ signForm.get('nameInput')?.value?.length }} / 20
+            </mat-hint>
+            <mat-error
+              *ngIf="
+                signForm.get('nameInput')?.invalid &&
+                (signForm.get('nameInput')?.touched ||
+                  signForm.get('nameInput')?.dirty)
+              "
+            >
+              <span *ngIf="signForm.get('nameInput')?.hasError('required')"
+                >Name is required</span
+              >
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Lastname</mat-label>
+            <input
+              matInput
+              type="text"
+              maxlength="40"
+              required
+              placeholder="Enter your lastname"
+              formControlName="lastnameInput"
+            />
+            <mat-hint
+              >{{ signForm.get('lastnameInput')?.value?.length }} / 40
+            </mat-hint>
+            <mat-error
+              *ngIf="
+                signForm.get('lastnameInput')?.invalid &&
+                (signForm.get('lastnameInput')?.touched ||
+                  signForm.get('lastnameInput')?.dirty)
+              "
+            >
+              <span *ngIf="signForm.get('lastnameInput')?.hasError('required')"
+                >Lastname is required</span
+              >
+            </mat-error>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            type="submit"
+            [disabled]="!signForm.valid"
+            color="primary"
+            class="full-width"
+          >
+            Sign up
+          </button>
+          <a
+            mat-button
+            color="warn"
+            routerLink="/login"
+            class="menu-link"
+            class="full-width"
+            >Back</a
+          >
+        </form>
+      </div>
+    </mat-card>
+  </div>
+  <app-footer-minimal></app-footer-minimal>
+</div>

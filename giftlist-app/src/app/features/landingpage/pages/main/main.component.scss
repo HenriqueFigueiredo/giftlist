@@ -1,0 +1,131 @@
+.section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+}
+
+.left-column {
+  flex: 1;
+  text-align: left;
+  margin-right: 20px;
+}
+
+.right-column {
+  flex: 1;
+}
+
+.large-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.mobile .container {
+  flex-direction: column;
+}
+
+.mobile .left-column {
+  margin-right: 0;
+}
+
+.mobile .button-container {
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile .button-container button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.second-section {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.line-one {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.left-column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.right-column {
+  flex: 1;
+}
+
+.line-two {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.column {
+  flex: 1;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile .line-one {
+  flex-direction: column;
+}
+
+.mobile .line-two {
+  flex-direction: column;
+}
+
+.third-section {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.line-one {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.line-two {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.column img {
+  max-width: 100%;
+  height: auto;
+}
+
+.mobile .line-two {
+  flex-direction: column;
+}
+
+.mobile .column {
+  margin: 10px 0;
+}

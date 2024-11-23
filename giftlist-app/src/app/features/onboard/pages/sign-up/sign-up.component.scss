@@ -1,0 +1,42 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.title {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.centered-text {
+  text-align: center;
+  margin: 8px 0;
+}
+
+mat-card {
+  width: 350px;
+  margin: 16px;
+}

@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>{{ listName }}</mat-card-title>
+  <div class="action-buttons">
+    <button mat-icon-button (click)="shareList()">
+      <mat-icon>qr_code</mat-icon>
+    </button>
+    <button mat-icon-button (click)="openList(listId)">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+    <button mat-icon-button (click)="deleteGiftList()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-card>

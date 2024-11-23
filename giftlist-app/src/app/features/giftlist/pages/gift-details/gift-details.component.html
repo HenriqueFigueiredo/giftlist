@@ -1,0 +1,36 @@
+<div class="gift-details-container">
+  <app-header></app-header>
+  <div class="card-container">
+    <mat-card>
+      <div class="card-content">
+        <mat-card-title class="title">{{ gift.name }}</mat-card-title>
+        <p class="centered-text" *ngIf="gift.guestEmail">
+          Yay... Your guest has already confirmed this gift.
+        </p>
+        <p class="centered-text" *ngIf="!gift.guestEmail">
+          This gift has not been confirmed by any guest yet.
+        </p>
+        <p>
+          <strong>URL: </strong>
+          <a [href]="gift.url" target="_blank">{{ gift.url }}</a>
+        </p>
+        <p>
+          <strong>Guest:</strong>
+          {{ gift.guestEmail ? gift.guestName : 'Not confirmed' }}
+        </p>
+        <p>
+          <strong>Email:</strong>
+          {{ gift.guestEmail ? gift.guestEmail : 'Not confirmed' }}
+        </p>
+        <a
+          mat-raised-button
+          color="primary"
+          (click)="return()"
+          class="full-width"
+          >Back</a
+        >
+      </div>
+    </mat-card>
+  </div>
+  <app-footer-minimal></app-footer-minimal>
+</div>

@@ -1,0 +1,94 @@
+<app-header></app-header>
+
+<main>
+  <section class="section" [ngClass]="{ mobile: isMobile }">
+    <div class="container" [ngClass]="{ mobile: isMobile }">
+      <!-- Coluna da Esquerda -->
+      <div class="left-column">
+        <h1>Create your perfect gift list!</h1>
+        <p>
+          We make it easy to create gift lists for any event. Make your
+          celebrations even more special with our help!
+        </p>
+        <div class="button-container">
+          <button
+            mat-raised-button
+            type="submit"
+            color="primary"
+            (click)="navigateToSecond()"
+          >
+            Get started now
+          </button>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <img
+          src="assets/images/1.jpg"
+          alt="Image of a gift"
+          class="large-image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="second-section" [ngClass]="{ mobile: isMobile }">
+    <div class="line-one">
+      <div class="left-column">
+        <h2>Creating and sharing your gift list has never been easier.</h2>
+      </div>
+      <div class="right-column">
+        <p>
+          Creating a gift list is simple and fun. Follow our step-by-step guide
+          to ensure you and your guests have an amazing experience. Easily share
+          your list with friends and family.
+        </p>
+      </div>
+    </div>
+
+    <!-- Segunda Linha -->
+    <div class="line-two">
+      <div class="column">
+        <mat-icon>star</mat-icon>
+        <h4>Step 1: Sign up on our platform</h4>
+        <p>Start by creating a free account on our website.</p>
+      </div>
+      <div class="column">
+        <mat-icon>favorite</mat-icon>
+        <h4>Step 2: Create your gift list</h4>
+        <p>Add the gifts you would like to receive.</p>
+      </div>
+      <div class="column">
+        <mat-icon>thumb_up</mat-icon>
+        <h4>Step 3: Share your list with friends</h4>
+        <p>Send the link or QR code of your list to anyone you want.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="third-section" [ngClass]="{ mobile: isMobile }">
+    <div class="line-one">
+      <h3>Create the perfect gift list for any occasion</h3>
+    </div>
+
+    <div class="line-two">
+      <div class="column">
+        <img src="assets/images/5.jpg" alt="Descrição da Imagem 1" />
+        <h5>Baby Shower</h5>
+        <p>Make your baby shower even more special.</p>
+      </div>
+      <div class="column">
+        <img src="assets/images/2.jpg" alt="Descrição da Imagem 2" />
+        <h5>Wedding</h5>
+        <p>Help your guests buy the perfect gift.</p>
+      </div>
+      <div class="column">
+        <img src="assets/images/4.jpg" alt="Descrição da Imagem 3" />
+        <h5>Birthday</h5>
+        <p>Make your dreams come true.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

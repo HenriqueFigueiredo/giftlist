@@ -1,0 +1,24 @@
+mat-card {
+  width: 350px;
+  margin: 16px;
+  padding: 16px;
+}
+
+span {
+  margin-bottom: 8px;
+}
+
+button {
+  margin-top: 8px;
+}
+
+
+.gift-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gift-link:hover {
+  text-decoration: underline;
+  color: #007bff;
+}

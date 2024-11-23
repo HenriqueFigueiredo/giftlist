@@ -1,0 +1,46 @@
+<div class="home-container">
+  <app-header></app-header>
+
+  <div class="card-container" *ngIf="giftLists.length === 0">
+    <div class="title">
+      <h3>It looks like you haven't created any lists yet.</h3>
+      <p>Don't waste any more time, create your first list now!</p>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      class="full-width"
+      (click)="navigateToGiftListForm()"
+    >
+      Create my first list
+    </button>
+  </div>
+
+  <div class="card-container" *ngIf="giftLists.length > 0">
+    <div class="title">
+      <h3>My Lists</h3>
+      <p>Here you can create and manage your lists.</p>
+    </div>
+
+    <button
+      mat-raised-button
+      type="submit"
+      color="primary"
+      class="full-width"
+      (click)="navigateToGiftListForm()"
+    >
+      Create new list
+    </button>
+
+    <div *ngFor="let giftList of giftLists">
+      <app-gift-list-card
+        listId="{{ giftList.id }}"
+        listName="{{ giftList.name }}"
+        listDescription="link descriptio"
+        (giftListRemoved)="giftListRemoved()"
+      ></app-gift-list-card>
+    </div>
+  </div>
+
+  <app-footer-minimal></app-footer-minimal>
+</div>

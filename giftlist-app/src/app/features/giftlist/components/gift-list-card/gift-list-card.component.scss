@@ -1,0 +1,11 @@
+mat-card {
+  width: 350px;
+  margin: 16px;
+  padding: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
