@@ -12,9 +12,11 @@ import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Base64;
@@ -33,8 +35,8 @@ public class JweService {
     public JweService(@Value("${app.session.keyaes128base64}") final String keyaes,
                       @Value("${app.session.keyhmacsha256base64}") final String keyhmac,
                       @Value("${app.session.exp.seconds}") final int sessionExp) {
-        this.keyaes = keyaes;
-        this.keyhmac = keyhmac;
+        this.keyaes = ObjectUtils.isEmpty(keyaes) ? this.generateRandonAesKey() : keyaes;
+        this.keyhmac = ObjectUtils.isEmpty(keyhmac) ? this.generateRandonHmacKey() : keyhmac;
         this.sessionExp = sessionExp;
     }
 
@@ -117,5 +119,27 @@ public class JweService {
     private SecretKey getSecretKey(String keyAes128Base64, String AES) {
         final byte[] decodedAesKey = Base64.getDecoder().decode(keyAes128Base64);
         return new SecretKeySpec(decodedAesKey, 0, decodedAesKey.length, AES);
+    }
+
+    private String generateRandonAesKey() {
+        try {
+            var gen = javax.crypto.KeyGenerator.getInstance("AES");
+            gen.init(256);
+            SecretKey encryptKey = gen.generateKey();
+            return Base64.getEncoder().encodeToString(encryptKey.getEncoded());
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateRandonHmacKey() {
+        try {
+            var gen2 = javax.crypto.KeyGenerator.getInstance("HmacSHA256");
+            gen2.init(256);
+            SecretKey signKey = gen2.generateKey();
+            return Base64.getEncoder().encodeToString(signKey.getEncoded());
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

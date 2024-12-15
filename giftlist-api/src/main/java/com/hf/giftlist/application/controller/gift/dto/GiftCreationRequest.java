@@ -14,7 +14,7 @@ public record GiftCreationRequest(
 
         @NotNull(message = "url is required.")
         @NotBlank(message = "url must not be empty.")
-        @Size(max = 100, message = "url length must be between 1 and 255.")
+        @Size(max = 1000, message = "url length must be between 1 and 1000.")
         @URL(message = "url invalid")
         String url
 ) {}

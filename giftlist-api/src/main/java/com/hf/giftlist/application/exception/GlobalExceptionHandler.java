@@ -54,8 +54,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(SendEmailException.class)
     public ResponseEntity<MsgResponse> handleSendEmailException(final SendEmailException ex) {
-        var msg = new MsgResponse(GIFT_LIST_MAX_SIZE.getCode(), GIFT_LIST_MAX_SIZE.getMsg());
-        return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        var msg = new MsgResponse(SEND_MAIL_ERROR.getCode(), SEND_MAIL_ERROR.getMsg());
+        return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(Throwable.class)

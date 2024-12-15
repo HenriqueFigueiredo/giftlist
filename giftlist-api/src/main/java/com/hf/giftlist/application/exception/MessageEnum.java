@@ -10,7 +10,8 @@ public enum MessageEnum {
     INVALID_PAYLOAD("1004", "Payload invalid."),
     SESSION_EXPIRED("1005", "Session expired."),
     GIFT_LIST_MAX_QUANTITY("1006", "Maximum number of lists reached."),
-    GIFT_LIST_MAX_SIZE("1007", "Maximum number of gifts reached.")
+    GIFT_LIST_MAX_SIZE("1007", "Maximum number of gifts reached."),
+    SEND_MAIL_ERROR("1008", "Error sending email.")
     ;
 
     private final String code;
